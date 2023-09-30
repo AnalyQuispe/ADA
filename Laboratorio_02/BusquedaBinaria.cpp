@@ -12,13 +12,21 @@ int busquedaBinaria (int x, int n, int v[]) {
     // ahora v[0] < x <= v[n-1]
     int i = 0, d = n-1;
     while (i < d-1) {
-        int m = (i + d - 1)/2;
-        if (v[m] < x) i = m;
+        int m = (i + d)/2;
+        if (v[m] < x) i = m-1;
         else d = m;
     }
     return d;
 }
 
-(i + d - 1)/2
+
+int main() {
+    int v[11] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+    int x = 4;
+    int n = 11;
+    int j = busquedaBinaria(x, n, v);
+    cout << j << endl;
+    return 0;
+}
 
 //linea para compilar c++ -std=c++11 BusquedaBinaria.cpp -o BusquedaBinaria
